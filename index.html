@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Hospital PCELL — Servicio técnico profesional en Guadalupe, N.L. Reparación de computadoras, celulares, videojuegos, controles y microsoldadura a nivel componente.">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0000">
   <title>Hospital PCELL | Servicio Técnico Profesional · Guadalupe, N.L.</title>
   <style>
     /* ─── RESET & BASE ─── */
@@ -32,12 +32,12 @@
       --bg: #080808;
       --bg2: #101010;
       --bg3: #161616;
-      --card: #111111;
-      --border: #222222;
+      --card: #1111;
+      --border: #2222;
       --border2: #2a2a2a;
       --text: #f0f0f0;
-      --muted: #888888;
-      --muted2: #666666;
+      --muted: #8888;
+      --muted2: #6666;
     }
 
     /* ─── UTILITIES ─── */
@@ -147,10 +147,10 @@
     .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
     h1 {
-      font-size: clamp(1rem, 2.2vw, 1.7rem);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
       font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -.03em;
+      line-height: 1.03;
+      letter-spacing: -.04em;
       margin-bottom: 20px;
     }
     h1 .accent-g { color: var(--green); }
@@ -596,7 +596,7 @@
       .gallery-grid { grid-template-columns: 1fr; }
       .gallery-item.wide { grid-column: span 1; }
       .process-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 1.3rem; }
+      h1 { font-size: 2.3rem; }
       .hero { padding: 60px 0 54px; }
       .hero-actions .btn-primary,
       .hero-actions .btn-outline { width: 100%; justify-content: center; }
@@ -606,7 +606,7 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<!-- ════ HEADER ════ -->
 <header>
   <div class="wrap nav-inner">
     <a class="brand" href="#inicio">
@@ -626,7 +626,7 @@
   </div>
 </header>
 
-<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<!-- ════ HERO ════ -->
 <main>
 <section class="hero" id="inicio">
   <div class="wrap hero-grid">
@@ -636,12 +636,12 @@
         <span class="tag">Guadalupe, Nuevo León</span>
       </div>
       <h1>
-        REPARACIÓN - MANTENIMIENTO - INSTALACIÓN - ACTUALIZACIÓN<br>
-        VIDEO JUEGOS - COMPUTADORAS - CELULARES - ARCADES - CONTROLES - ELECTRONICA<br>
-        <span class="accent-g">Servicio Técnico Profesional.</span>
+        Reparamos lo que<br>
+        otros dan por<br>
+        <span class="accent-g">irreparable.</span>
       </h1>
       <p class="hero-lead">
-        Especialistas en electronica a nivel componente manejamos hardware y software para videojuegos, controles, computadoras, celulares, arcades y electrónica en general.
+        Especialistas en hardware, software y microsoldadura. Atendemos fallas en placa hasta problemas de programación en computadoras, celulares, videojuegos, controles y electrónica en general.
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quisiera%20una%20consulta." target="_blank" rel="noopener">
@@ -677,7 +677,7 @@
       </div>
       <div class="hero-divider"></div>
       <div class="hero-spec">
-        <span>📍 Guadalupe, Nuevo Leon, México</span>
+        <span>📍 Guadalupe, N.L.</span>
         <div class="dot-sep"></div>
         <span><strong>81 2981 2615</strong></span>
       </div>
@@ -685,7 +685,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ SÍNTOMAS ═══════════════════════════ -->
+<!-- ════ SÍNTOMAS ════ -->
 <section class="symptoms" id="sintomas">
   <div class="wrap">
     <div class="symptoms-intro">
@@ -770,12 +770,12 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ SERVICIOS ═══════════════════════════ -->
+<!-- ════ SERVICIOS ════ -->
 <section id="servicios">
   <div class="wrap">
     <div class="tag">Servicios y cotizaciones</div>
     <h2 class="sec-title">Lo que hacemos, explicado claro</h2>
-    <p class="sec-sub" style="margin-bottom:36px;">Solicita una cotización por WhatsApp. El costo depende del equipo, la falla y las piezas necesarias; te informamos el precio antes de realizar cualquier reparación.</p>
+    <p class="sec-sub" style="margin-bottom:36px;">Los precios «Desde» son la base de la consulta: si autorizas la reparación con nosotros, ese costo se bonifica en la cuenta final; si prefieres solo el diagnóstico, se entrega con ese costo. El precio final depende del equipo, la falla y las piezas, y te lo informamos antes de reparar.</p>
 
     <div class="services-grid">
 
@@ -789,7 +789,10 @@
               <div style="color:var(--muted);font-size:.82rem;">PC de escritorio y portátiles</div>
             </div>
           </div>
-          <div class="price-tag">Cotizar por WhatsApp</div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+            <div class="price-tag">PC · Desde: $750</div>
+            <div class="price-tag">Laptop · Desde: $850</div>
+          </div>
         </div>
         <p class="desc">
           Atendemos fallas de hardware y software: equipos lentos, que no encienden, se sobrecalientan o presentan pantalla azul; daños en placa madre, fallas de carga, sistema operativo, actualización o bloqueo.
@@ -814,7 +817,10 @@
               <div style="color:var(--muted);font-size:.82rem;">Cualquier gama y sistema operativo</div>
             </div>
           </div>
-          <div class="price-tag">Cotizar por WhatsApp</div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+            <div class="price-tag">Celulares · Desde: $350</div>
+            <div class="price-tag">Tablets · Desde: $450</div>
+          </div>
         </div>
         <p class="desc">
           Reparamos fallas de hardware y software: problemas de carga, pantalla o batería; equipos que no encienden; fallas de señal, audio o táctil; errores del sistema y daños por líquido mediante ultrasonido.
@@ -839,7 +845,10 @@
               <div style="color:var(--muted);font-size:.82rem;">PlayStation · Xbox · Nintendo · Arcade</div>
             </div>
           </div>
-          <div class="price-tag">Cotizar por WhatsApp</div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+            <div class="price-tag">Arcade · Desde: $250</div>
+            <div class="price-tag">Videojuegos · Desde: $650</div>
+          </div>
         </div>
         <p class="desc">
           Atendemos fallas en consolas y equipos arcade: problemas de encendido, imagen o lectura; puertos HDMI o USB dañados; sobrecalentamiento, fallas de alimentación y restauración de sistemas arcade clásicos.
@@ -864,7 +873,7 @@
               <div style="color:var(--muted);font-size:.82rem;">Originales y especiales · DualSense · Elite</div>
             </div>
           </div>
-          <div class="price-tag">Cotizar por WhatsApp</div>
+          <div class="price-tag">Desde: $150</div>
         </div>
         <p class="desc">
           Reparamos drift, botones que no responden, fallas de conexión y daños en componentes internos. Manejamos joysticks normales, magnéticos y TMR. También controles especiales como Series Elite o DualSense Pro.
@@ -891,6 +900,7 @@
                   <div style="color:var(--muted);font-size:.82rem;">El corazón de nuestro laboratorio</div>
                 </div>
               </div>
+              <div class="price-tag">Electrónica · Desde: $550</div>
             </div>
             <p class="desc">
               Aquí es donde resolvemos lo que otros talleres dan por irreparable. Diagnóstico y reparación electrónica de placas: cortocircuitos, componentes dañados o pistas afectadas; además de problemas de BIOS, firmware, memoria o arranque.
@@ -927,7 +937,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ GALERÍA ═══════════════════════════ -->
+<!-- ════ GALERÍA ════ -->
 <section class="gallery" id="galeria">
   <div class="wrap">
     <div class="tag">Trabajos reales</div>
@@ -963,7 +973,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ PROCESO ═══════════════════════════ -->
+<!-- ════ PROCESO ════ -->
 <section id="proceso">
   <div class="wrap">
     <div class="tag">Cómo trabajamos</div>
@@ -999,7 +1009,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════ CONTACTO ═══════════════════════════ -->
+<!-- ════ CONTACTO ════ -->
 <section class="contact" id="contacto">
   <div class="wrap">
     <div class="tag red">Contáctanos</div>
@@ -1103,7 +1113,7 @@
 </section>
 </main>
 
-<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<!-- ════ FOOTER ════ -->
 <footer>
   <div class="wrap footer-inner">
     <div class="footer-brand">HOSPITAL <span>PCELL</span> · Servicio Técnico Profesional</div>
