@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hospital PCELL — Servicio técnico profesional en Guadalupe, N.L. Reparación de computadoras, celulares, videojuegos, controles y microsoldadura a nivel componente.">
+  <meta name="theme-color" content="#0000">
+  <title>Hospital PCELL | Servicio Técnico Profesional · Guadalupe, N.L.</title>
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+      background: #080808;
+      color: #f0f0f0;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ─── VARIABLES ─── */
+    :root {
+      --green: #22c55e;
+      --green-dim: #16a34a;
+      --blue: #3b82f6;
+      --blue-dim: #1d4ed8;
+      --red: #ef4444;
+      --orange: #f97316;
+      --bg: #080808;
+      --bg2: #101010;
+      --bg3: #161616;
+      --card: #1111;
+      --border: #2222;
+      --border2: #2a2a2a;
+      --text: #f0f0f0;
+      --muted: #8888;
+      --muted2: #6666;
+    }
+
+    /* ─── UTILITIES ─── */
+    .wrap { width: min(1160px, 92%); margin: 0 auto; }
+    .tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(34,197,94,.12);
+      color: var(--green);
+      border: 1px solid rgba(34,197,94,.25);
+    }
+    .tag.blue { background: rgba(59,130,246,.12); color: var(--blue); border-color: rgba(59,130,246,.25); }
+    .tag.red  { background: rgba(239,68,68,.12);  color: var(--red);  border-color: rgba(239,68,68,.25); }
+    .sec-title { font-size: clamp(1.75rem,4vw,2.6rem); font-weight: 900; letter-spacing: -.03em; line-height: 1.1; margin: 10px 0 14px; }
+    .sec-sub   { color: var(--muted); font-size: 1.05rem; max-width: 640px; }
+    section { padding: 80px 0; }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,8,8,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 1.05rem;
+      letter-spacing: .02em;
+    }
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    .brand span { color: var(--green); }
+    nav { display: flex; gap: 24px; font-size: .9rem; color: var(--muted); }
+    nav a:hover { color: var(--green); transition: color .2s; }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 800;
+      font-size: .88rem;
+      padding: 10px 18px;
+      border-radius: 10px;
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa:hover { background: var(--green-dim); transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 90px 0 80px;
+      background:
+        radial-gradient(ellipse 70% 50% at 75% 40%, rgba(34,197,94,.07), transparent),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(59,130,246,.06), transparent),
+        var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,.02) 39px,
+        rgba(255,255,255,.02) 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,.02) 39px,
+        rgba(255,255,255,.02) 40px
+      );
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+    }
+    .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+    h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.03;
+      letter-spacing: -.04em;
+      margin-bottom: 20px;
+    }
+    h1 .accent-g { color: var(--green); }
+    h1 .accent-b { color: var(--blue); }
+    .hero-lead { color: var(--muted); font-size: 1.1rem; max-width: 560px; margin-bottom: 30px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 800;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--green-dim); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      border: 1px solid var(--border2);
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border2);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    }
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .hero-card-logo {
+      width: 44px; height: 44px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #fff;
+      padding: 2px;
+    }
+    .hero-card h3 { font-size: 1.05rem; font-weight: 800; }
+    .hero-card p { color: var(--muted); font-size: .93rem; margin-bottom: 18px; }
+    .hours-grid {
+      display: grid;
+      gap: 8px;
+    }
+    .hour-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 12px;
+      background: var(--bg3);
+      border-radius: 8px;
+      font-size: .88rem;
+    }
+    .hour-row .day { color: var(--muted); }
+    .hour-row .time { font-weight: 700; color: var(--text); }
+    .hour-row .time.closed { color: var(--red); }
+    .hero-divider { height: 1px; background: var(--border); margin: 16px 0; }
+    .hero-spec {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .86rem;
+      color: var(--muted);
+    }
+    .hero-spec strong { color: var(--text); }
+    .dot-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--border2); }
+
+    /* ─── SÍNTOMAS COMUNES ─── */
+    .symptoms { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .symptoms-intro { margin-bottom: 36px; }
+    .symptoms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .symptom-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: border-color .2s;
+    }
+    .symptom-card:hover { border-color: var(--green); }
+    .sym-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .sym-text strong { display: block; font-size: .93rem; margin-bottom: 2px; }
+    .sym-text span { color: var(--muted); font-size: .83rem; }
+    .symptoms-cta {
+      background: linear-gradient(135deg, rgba(34,197,94,.1), rgba(59,130,246,.1));
+      border: 1px solid rgba(34,197,94,.2);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .symptoms-cta p { color: var(--muted); font-size: .95rem; margin: 4px 0 0; }
+    .symptoms-cta strong { color: var(--text); font-size: 1rem; }
+
+    /* ─── SERVICIOS ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .25s, transform .2s;
+    }
+    .service-card:hover { border-color: var(--green); transform: translateY(-3px); }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), var(--blue));
+      opacity: 0;
+      transition: opacity .25s;
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .service-icon {
+      width: 48px; height: 48px;
+      border-radius: 13px;
+      display: grid; place-items: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .service-icon.g { background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.2); }
+    .service-icon.b { background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.2); }
+    .service-icon.r { background: rgba(239,68,68,.12);  border: 1px solid rgba(239,68,68,.2); }
+    .service-icon.o { background: rgba(249,115,22,.12); border: 1px solid rgba(249,115,22,.2); }
+    .service-icon.p { background: rgba(168,85,247,.12); border: 1px solid rgba(168,85,247,.2); }
+    .price-tag {
+      font-size: .82rem;
+      font-weight: 800;
+      padding: 5px 11px;
+      background: rgba(34,197,94,.1);
+      border: 1px solid rgba(34,197,94,.25);
+      color: var(--green);
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .service-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; }
+    .service-card .desc { color: var(--muted); font-size: .9rem; line-height: 1.55; margin-bottom: 14px; }
+    .service-examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .ex-chip {
+      font-size: .77rem;
+      padding: 4px 10px;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      color: var(--muted);
+    }
+    /* Microsoldadura: card completo */
+    .service-card.full { grid-column: 1 / -1; }
+    .service-card.full .service-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    /* ─── GALERÍA ─── */
+    .gallery { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+      margin-top: 36px;
+    }
+    .gallery-item {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      cursor: default;
+      transition: transform .25s, border-color .25s;
+    }
+    .gallery-item:hover { transform: scale(1.025); border-color: var(--green); }
+    .gallery-item img { width: 100%; height: 220px; object-fit: cover; display: block; }
+    .gallery-item.tall img { height: 452px; }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item.wide img { height: 220px; }
+    .gallery-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 12px 14px;
+      background: linear-gradient(transparent, rgba(0,0,0,.85));
+      font-size: .8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ─── PROCESO ─── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .process-step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .step-num {
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .process-step h3 { font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
+    .process-step p { color: var(--muted); font-size: .88rem; }
+    .process-notice {
+      margin-top: 20px;
+      padding: 18px 22px;
+      background: rgba(249,115,22,.08);
+      border: 1px solid rgba(249,115,22,.25);
+      border-radius: 12px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .process-notice strong { color: var(--orange); }
+
+    /* ─── CONTACTO ─── */
+    .contact { background: var(--bg2); border-top: 1px solid var(--border); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+    }
+    .contact-box h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 20px; }
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-item:last-of-type { border-bottom: 0; }
+    .ci-icon {
+      width: 36px; height: 36px;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 9px;
+      display: grid; place-items: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .ci-text strong { display: block; font-size: .9rem; margin-bottom: 2px; }
+    .ci-text span { color: var(--muted); font-size: .86rem; line-height: 1.45; }
+    .schedule-grid { display: grid; gap: 6px; margin-top: 4px; }
+    .schedule-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: var(--bg3);
+      border-radius: 8px;
+      font-size: .86rem;
+    }
+    .schedule-row .s-day { color: var(--muted); }
+    .schedule-row .s-time { font-weight: 700; }
+    .schedule-row .s-time.closed { color: var(--red); }
+    .wa-big {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding: 16px 28px;
+      border-radius: 14px;
+      margin-top: 20px;
+      transition: background .2s, transform .15s;
+    }
+    .wa-big:hover { background: var(--green-dim); transform: translateY(-2px); }
+    .tips-list { display: grid; gap: 10px; margin-top: 4px; }
+    .tip-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    .tip-item::before {
+      content: '→';
+      color: var(--green);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ─── SOCIAL ─── */
+    .social-row {
+      margin-top: 20px;
+      margin-bottom: 4px;
+    }
+    .social-label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .social-btns {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: .88rem;
+      font-weight: 700;
+      border: 1px solid var(--border2);
+      transition: transform .15s, opacity .15s;
+    }
+    .social-btn:hover { transform: translateY(-2px); opacity: .9; }
+    .social-btn.fb { background: #1877f2; color: #fff; border-color: #1877f2; }
+    .social-btn.ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; border-color: transparent; }
+    .social-btn.tt { background: #010101; color: #fff; border-color: #333; }
+
+    /* ─── MAP ─── */
+    .map-embed {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-top: 24px;
+      height: 220px;
+    }
+    .map-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* ─── GARANTÍA / CONFIANZA ─── */
+    .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .trust-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .86rem; font-weight: 700; color: var(--muted);
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 8px 14px;
+    }
+    .trust-item svg { flex-shrink: 0; }
+    .warranty-strip {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.25);
+      border-radius: 14px; padding: 16px 20px; margin-bottom: 36px;
+    }
+    .warranty-strip .ws-icon {
+      width: 42px; height: 42px; border-radius: 11px;
+      background: rgba(34,197,94,.14); display: grid; place-items: center; flex-shrink: 0;
+    }
+    .warranty-strip .ws-text strong { display: block; font-size: .95rem; color: var(--text); }
+    .warranty-strip .ws-text p { color: var(--muted); font-size: .9rem; margin: 2px 0 0; }
+
+    /* ─── COTIZADOR ─── */
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .quote-chip {
+      display: flex; flex-direction: column; gap: 6px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px;
+      transition: border-color .2s, transform .15s;
+    }
+    .quote-chip:hover { border-color: var(--green); transform: translateY(-3px); }
+    .quote-chip .q-icon { font-size: 1.5rem; }
+    .quote-chip .q-name { font-weight: 800; font-size: .95rem; color: var(--text); }
+    .quote-chip .q-price { color: var(--green); font-weight: 800; font-size: .85rem; }
+    .quote-chip .q-cta { color: var(--muted); font-size: .78rem; margin-top: auto; }
+    .quote-note { color: var(--muted); font-size: .88rem; margin-top: 20px; }
+    .quote-note a { color: var(--green); font-weight: 700; }
+
+    /* ─── OPINIONES ─── */
+    .opiniones { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .review-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 24px;
+    }
+    .review-stars { color: #facc15; letter-spacing: 3px; font-size: 1rem; margin-bottom: 12px; }
+    .review-card p { color: var(--text); font-size: .93rem; line-height: 1.6; }
+    .review-meta { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+    .review-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bg3); border: 1px solid var(--border2);
+      display: grid; place-items: center;
+      font-weight: 800; color: var(--green); font-size: .9rem; flex-shrink: 0;
+    }
+    .review-meta .r-name { font-weight: 800; font-size: .88rem; }
+    .review-meta .r-src { color: var(--muted); font-size: .78rem; }
+    .review-cta { margin-top: 28px; display: flex; justify-content: center; }
+
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 760px; margin-top: 36px; }
+    .faq-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; margin-bottom: 10px; overflow: hidden;
+    }
+    .faq-item summary {
+      list-style: none; cursor: pointer;
+      padding: 16px 20px; font-weight: 800; font-size: .95rem; color: var(--text);
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; color: var(--green); font-weight: 900; font-size: 1.25rem; flex-shrink: 0; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item p { padding: 0 20px 18px; color: var(--muted); font-size: .9rem; }
+
+    /* ─── MAP CTA ─── */
+    .map-cta {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; margin-top: 12px;
+      color: var(--text); font-weight: 700; font-size: .92rem;
+      padding: 13px 20px; border-radius: 12px; border: 1px solid var(--border2);
+      transition: border-color .2s, color .2s;
+    }
+    .map-cta:hover { border-color: var(--green); color: var(--green); }
+
+    @media (max-width: 900px) {
+      .quote-grid { grid-template-columns: repeat(2, 1fr); }
+      .review-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .quote-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .quote-chip { padding: 13px; }
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .86rem;
+      color: var(--muted);
+    }
+    .footer-brand { font-weight: 900; color: var(--text); }
+    .footer-brand span { color: var(--green); }
+
+    /* ─── FLOAT WA ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 200;
+      background: #25D366;
+      color: #fff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 8px 32px rgba(37,211,102,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,.6); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-card { max-width: 500px; }
+      .symptoms-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card.full .service-inner { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.tall img { height: 220px; }
+      .gallery-item.tall { grid-row: span 1; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      nav { display: none; }
+      section { padding: 60px 0; }
+    }
+    @media (max-width: 560px) {
+      .symptoms-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.wide { grid-column: span 1; }
+      .process-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.3rem; }
+      .hero { padding: 60px 0 54px; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline { width: 100%; justify-content: center; }
+      .symptoms-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════ HEADER ════ -->
+<header>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#inicio">
+      <img src="img/hospital pcell logo.png" alt="Hospital PCELL Logo" class="brand-logo">
+      HOSPITAL <span>PCELL</span>
+    </a>
+    <nav aria-label="Navegación">
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Trabajos</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn-wa" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quisiera%20informaci%C3%B3n." target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6L0 24l6.2-1.6A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.25-1.44l-.38-.22-3.92 1.01 1.04-3.8-.25-.4A9.93 9.93 0 0 1 2 12c0-5.51 4.49-10 10-10s10 4.49 10 10-4.49 10-10 10zm5.47-7.59c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51l-.58-.01c-.2 0-.52.07-.79.37-.28.3-1.06 1.04-1.06 2.53s1.09 2.93 1.24 3.13c.15.2 2.15 3.28 5.2 4.6.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.34z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- ════ HERO ════ -->
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow">
+        <div class="hero-dot"></div>
+        <span class="tag">Guadalupe, Nuevo León</span>
+      </div>
+      <h1>
+        Reparamos lo que<br>
+        otros dan por<br>
+        <span class="accent-g">irreparable.</span>
+      </h1>
+      <p class="hero-lead">
+        Especialistas en hardware, software y microsoldadura. Atendemos fallas en placa hasta problemas de programación en computadoras, celulares, videojuegos, controles y electrónica en general.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quisiera%20una%20consulta." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6L0 24l6.2-1.6A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.25-1.44l-.38-.22-3.92 1.01 1.04-3.8-.25-.4A9.93 9.93 0 0 1 2 12c0-5.51 4.49-10 10-10s10 4.49 10 10-4.49 10-10 10zm5.47-7.59c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51l-.58-.01c-.2 0-.52.07-.79.37-.28.3-1.06 1.04-1.06 2.53s1.09 2.93 1.24 3.13c.15.2 2.15 3.28 5.2 4.6.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.34z"/></svg>
+          Consultar ahora
+        </a>
+        <a class="btn-outline" href="#servicios">Consultar servicios</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          Garantía por escrito
+        </div>
+        <div class="trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+          Consulta bonificada al reparar
+        </div>
+        <div class="trust-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+          Reparación a nivel componente
+        </div>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="hero-card-header">
+        <img src="img/hospital pcell logo.png" alt="Hospital PCELL" class="hero-card-logo">
+        <div>
+          <div style="font-weight:800;font-size:.95rem;">Hospital PCELL</div>
+          <div style="color:var(--muted);font-size:.82rem;">Servicio Técnico Profesional</div>
+        </div>
+      </div>
+      <p>Av. Maestro Israel Cavazos Garza #147 · Guadalupe, N.L.</p>
+      <div class="hours-grid">
+        <div class="hour-row">
+          <span class="day">Lunes – Viernes</span>
+          <span class="time">1:00 PM – 8:00 PM</span>
+        </div>
+        <div class="hour-row">
+          <span class="day">Sábado</span>
+          <span class="time">1:00 PM – 6:00 PM</span>
+        </div>
+        <div class="hour-row">
+          <span class="day">Domingo</span>
+          <span class="time closed">Cerrado</span>
+        </div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-spec">
+        <span>📍 Guadalupe, N.L.</span>
+        <div class="dot-sep"></div>
+        <span><strong>81 2981 2615</strong></span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ════ SÍNTOMAS ════ -->
+<section class="symptoms" id="sintomas">
+  <div class="wrap">
+    <div class="symptoms-intro">
+      <div class="tag blue">¿Qué le pasa a tu equipo?</div>
+      <h2 class="sec-title" style="margin-top:10px;">Identificamos la falla, sea cual sea</h2>
+      <p class="sec-sub">La gente suele describir qué hace el equipo, no qué pieza falló. Así que si tu equipo tiene alguno de estos síntomas, podemos ayudarte.</p>
+    </div>
+    <div class="symptoms-grid">
+      <div class="symptom-card">
+        <div class="sym-icon">⚡</div>
+        <div class="sym-text">
+          <strong>No enciende</strong>
+          <span>No responde, sin imagen, sin sonido</span>
+        </div>
+      </div>
+      <div class="symptom-card">
+        <div class="sym-icon">🔄</div>
+        <div class="sym-text">
+          <strong>Enciende y se apaga</strong>
+          <span>Se reinicia, se queda en el logo o en negro</span>
+        </div>
+      </div>
+      <div class="symptom-card">
+        <div class="sym-icon">🖥️</div>
+        <div class="sym-text">
+          <strong>Enciende pero sin imagen</strong>
+          <span>Pantalla negra, sin señal, sin video</span>
+        </div>
+      </div>
+      <div class="symptom-card">
+        <div class="sym-icon">🔋</div>
+        <div class="sym-text">
+          <strong>No carga o carga poco</strong>
+          <span>Carga intermitente, batería dura muy poco</span>
+        </div>
+      </div>
+      <div class="symptom-card">
+        <div class="sym-icon">🌡️</div>
+        <div class="sym-text">
+          <strong>Se calienta o hace ruido</strong>
+          <span>Ventilador fuerte, temperatura alta, lentitud</span>
+        </div>
+      </div>
+      <div class="symptom-card">
+        <div class="sym-icon">🐢</div>
+        <div class="sym-text">
+          <strong>Va lento o se traba</strong>
+          <span>Errores, pantalla azul, crasheos frecuentes</span>
+        </div>
+      </div>
+      <div class="symptom-card">
+        <div class="sym-icon">🔒</div>
+        <div class="sym-text">
+          <strong>Bloqueado o sin sistema</strong>
+          <span>No inicia, pide contraseña, error de arranque</span>
+        </div>
+      </div>
+      <div class="symptom-card">
+        <div class="sym-icon">🎮</div>
+        <div class="sym-text">
+          <strong>Controles con drift</strong>
+          <span>Joystick que se mueve solo, botones fallando</span>
+        </div>
+      </div>
+      <div class="symptom-card">
+        <div class="sym-icon">💧</div>
+        <div class="sym-text">
+          <strong>Daño por líquido o golpe</strong>
+          <span>Mojado, caído, pantalla rota o deformada</span>
+        </div>
+      </div>
+    </div>
+    <div class="symptoms-cta">
+      <div>
+        <strong>¿No ves tu falla en la lista?</strong>
+        <p>Escríbenos y cuéntanos qué ocurre. Revisamos si podemos ayudarte.</p>
+      </div>
+      <a class="btn-primary" href="https://wa.me/528129812615?text=Hola%2C%20mi%20equipo%20tiene%20este%20problema%3A%20" target="_blank" rel="noopener">
+        Consultar por WhatsApp →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SERVICIOS ════ -->
+<section id="servicios">
+  <div class="wrap">
+    <div class="tag">Servicios y cotizaciones</div>
+    <h2 class="sec-title">Lo que hacemos, explicado claro</h2>
+    <p class="sec-sub" style="margin-bottom:36px;">Los precios «Desde» son la base de la consulta: si autorizas la reparación con nosotros, ese costo se bonifica en la cuenta final; si prefieres solo el diagnóstico, se entrega con ese costo. El precio final depende del equipo, la falla y las piezas, y te lo informamos antes de reparar.</p>
+
+    <div class="warranty-strip">
+      <div class="ws-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <div class="ws-text">
+        <strong>Garantía por escrito · 30 días</strong>
+        <p>Cada reparación se entrega con su garantía por escrito. Si el detalle regresa dentro del periodo, la revisamos.</p>
+      </div>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Computadoras y Laptops -->
+      <div class="service-card">
+        <div class="service-head">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="service-icon b">💻</div>
+            <div>
+              <h3>Computadoras y Laptops</h3>
+              <div style="color:var(--muted);font-size:.82rem;">PC de escritorio y portátiles</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+            <div class="price-tag">PC · Desde: $750</div>
+            <div class="price-tag">Laptop · Desde: $850</div>
+          </div>
+        </div>
+        <p class="desc">
+          Atendemos fallas de hardware y software: equipos lentos, que no encienden, se sobrecalientan o presentan pantalla azul; daños en placa madre, fallas de carga, sistema operativo, actualización o bloqueo.
+        </p>
+        <div class="service-examples">
+          <span class="ex-chip">No enciende</span>
+          <span class="ex-chip">Pantalla azul / BSOD</span>
+          <span class="ex-chip">Sobrecalentamiento</span>
+          <span class="ex-chip">Falla de placa</span>
+          <span class="ex-chip">Formateo / Windows</span>
+          <span class="ex-chip">Optimización</span>
+        </div>
+      </div>
+
+      <!-- Celulares y Tablets -->
+      <div class="service-card">
+        <div class="service-head">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="service-icon g">📱</div>
+            <div>
+              <h3>Celulares y Tablets</h3>
+              <div style="color:var(--muted);font-size:.82rem;">Cualquier gama y sistema operativo</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+            <div class="price-tag">Celulares · Desde: $350</div>
+            <div class="price-tag">Tablets · Desde: $450</div>
+          </div>
+        </div>
+        <p class="desc">
+          Reparamos fallas de hardware y software: problemas de carga, pantalla o batería; equipos que no encienden; fallas de señal, audio o táctil; errores del sistema y daños por líquido mediante ultrasonido.
+        </p>
+        <div class="service-examples">
+          <span class="ex-chip">Pantalla rota</span>
+          <span class="ex-chip">Centro de carga</span>
+          <span class="ex-chip">No enciende</span>
+          <span class="ex-chip">Batería</span>
+          <span class="ex-chip">Sin señal / audio</span>
+          <span class="ex-chip">Daño por agua</span>
+        </div>
+      </div>
+
+      <!-- Videojuegos y Arcades -->
+      <div class="service-card">
+        <div class="service-head">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="service-icon r">🎮</div>
+            <div>
+              <h3>Videojuegos y Arcades</h3>
+              <div style="color:var(--muted);font-size:.82rem;">PlayStation · Xbox · Nintendo · Arcade</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+            <div class="price-tag">Arcade · Desde: $250</div>
+            <div class="price-tag">Videojuegos · Desde: $650</div>
+          </div>
+        </div>
+        <p class="desc">
+          Atendemos fallas en consolas y equipos arcade: problemas de encendido, imagen o lectura; puertos HDMI o USB dañados; sobrecalentamiento, fallas de alimentación y restauración de sistemas arcade clásicos.
+        </p>
+        <div class="service-examples">
+          <span class="ex-chip">No enciende</span>
+          <span class="ex-chip">Sin imagen / HDMI</span>
+          <span class="ex-chip">Sobrecalentamiento</span>
+          <span class="ex-chip">Falla de fuente</span>
+          <span class="ex-chip">Lector dañado</span>
+          <span class="ex-chip">Arcade / recreativas</span>
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <div class="service-card">
+        <div class="service-head">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="service-icon o">🕹️</div>
+            <div>
+              <h3>Controles</h3>
+              <div style="color:var(--muted);font-size:.82rem;">Originales y especiales · DualSense · Elite</div>
+            </div>
+          </div>
+          <div class="price-tag">Desde: $150</div>
+        </div>
+        <p class="desc">
+          Reparamos drift, botones que no responden, fallas de conexión y daños en componentes internos. Manejamos joysticks normales, magnéticos y TMR. También controles especiales como Series Elite o DualSense Pro.
+        </p>
+        <div class="service-examples">
+          <span class="ex-chip">Stick drift</span>
+          <span class="ex-chip">Botones sin respuesta</span>
+          <span class="ex-chip">Sin conexión</span>
+          <span class="ex-chip">Centro de carga</span>
+          <span class="ex-chip">DualSense / Elite</span>
+          <span class="ex-chip">Joystick Hall</span>
+        </div>
+      </div>
+
+      <!-- Microsoldadura – tarjeta completa -->
+      <div class="service-card full">
+        <div class="service-inner">
+          <div>
+            <div class="service-head" style="margin-bottom:18px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div class="service-icon p">🔬</div>
+                <div>
+                  <h3>Microsoldadura y Reprogramación</h3>
+                  <div style="color:var(--muted);font-size:.82rem;">El corazón de nuestro laboratorio</div>
+                </div>
+              </div>
+              <div class="price-tag">Electrónica · Desde: $550</div>
+            </div>
+            <p class="desc">
+              Aquí es donde resolvemos lo que otros talleres dan por irreparable. Diagnóstico y reparación electrónica de placas: cortocircuitos, componentes dañados o pistas afectadas; además de problemas de BIOS, firmware, memoria o arranque.
+            </p>
+          </div>
+          <div>
+            <div style="margin-bottom:14px;">
+              <div style="font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Microsoldadura de precisión</div>
+              <div class="service-examples">
+                <span class="ex-chip">Reballing de chips</span>
+                <span class="ex-chip">Reemplazo de PMIC</span>
+                <span class="ex-chip">Memorias NAND</span>
+                <span class="ex-chip">Reconstrucción de pistas</span>
+                <span class="ex-chip">Cortos en placa</span>
+                <span class="ex-chip">MOSFETs / condensadores</span>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;">Reprogramación avanzada</div>
+              <div class="service-examples">
+                <span class="ex-chip">Flash de BIOS</span>
+                <span class="ex-chip">Recuperación de firmware</span>
+                <span class="ex-chip">EEPROM / NAND</span>
+                <span class="ex-chip">Equipos bloqueados</span>
+                <span class="ex-chip">Extracción de datos</span>
+                <span class="ex-chip">Soft-brick</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ COTIZADOR ════ -->
+<section id="cotizador">
+  <div class="wrap">
+    <div class="tag blue">Cotiza en un toque</div>
+    <h2 class="sec-title">¿Qué equipo vas a traer?</h2>
+    <p class="sec-sub">Toca tu equipo y se abrirá WhatsApp con el mensaje ya escrito. La consulta es la base «Desde»: si autorizas la reparación, se bonifica en la cuenta final.</p>
+
+    <div class="quote-grid">
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20un%20celular%20y%20quiero%20una%20consulta%20(desde%20%24350%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">📱</span>
+        <span class="q-name">Celular</span>
+        <span class="q-price">Consulta desde $350</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20una%20tablet%20y%20quiero%20una%20consulta%20(desde%20%24450%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">📲</span>
+        <span class="q-name">Tablet</span>
+        <span class="q-price">Consulta desde $450</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20una%20PC%20de%20escritorio%20y%20quiero%20una%20consulta%20(desde%20%24750%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">🖥️</span>
+        <span class="q-name">PC de escritorio</span>
+        <span class="q-price">Consulta desde $750</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20una%20laptop%20y%20quiero%20una%20consulta%20(desde%20%24850%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">💻</span>
+        <span class="q-name">Laptop</span>
+        <span class="q-price">Consulta desde $850</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20una%20consola%20de%20videojuegos%20y%20quiero%20una%20consulta%20(desde%20%24650%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">🎮</span>
+        <span class="q-name">Consola</span>
+        <span class="q-price">Consulta desde $650</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20un%20control%20de%20videojuegos%20y%20quiero%20una%20consulta%20(desde%20%24150%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">🕹️</span>
+        <span class="q-name">Control</span>
+        <span class="q-price">Consulta desde $150</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20un%20equipo%20arcade%20y%20quiero%20una%20consulta%20(desde%20%24250%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">👾</span>
+        <span class="q-name">Arcade</span>
+        <span class="q-price">Consulta desde $250</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20un%20equipo%20de%20electr%C3%B3nica%20en%20general%20y%20quiero%20una%20consulta%20(desde%20%24550%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">🔌</span>
+        <span class="q-name">Electrónica</span>
+        <span class="q-price">Consulta desde $550</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
+    </div>
+    <p class="quote-note">¿Tu equipo no está en la lista? <a href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20consultar%20sobre%20un%20equipo." target="_blank" rel="noopener">Escríbenos aquí</a> y lo revisamos.</p>
+  </div>
+</section>
+
+<!-- ════ GALERÍA ════ -->
+<section class="gallery" id="galeria">
+  <div class="wrap">
+    <div class="tag">Trabajos reales</div>
+    <h2 class="sec-title">Lo que hacemos, lo vemos</h2>
+    <p class="sec-sub">Cada reparación pasa por diagnóstico, proceso y verificación antes de ser entregada.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tall" style="grid-row: span 2;">
+        <img src="img/celulares.jpg" alt="Hospital PCELL - reparación de celulares y tablets" loading="lazy">
+        <div class="gallery-label">Hospital PCELL</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/laptops.jpg" alt="Reparación de laptops y computadoras" loading="lazy">
+        <div class="gallery-label">Laptops y Computadoras</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/celulares.jpg" alt="Reparación de celulares y tablets" loading="lazy">
+        <div class="gallery-label">Celulares y Tablets</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/controles.jpg" alt="Reparación de controles y drift" loading="lazy">
+        <div class="gallery-label">Controles y Drift</div>
+      </div>
+      <div class="gallery-item">
+        <img src="img/consolas.jpg" alt="Reparación de consolas de videojuegos" loading="lazy">
+        <div class="gallery-label">Consolas</div>
+      </div>
+      <div class="gallery-item wide">
+        <img src="img/microsoldadura.jpg" alt="Diagnóstico a nivel componente" loading="lazy" style="width:100%;height:220px;object-fit:cover;">
+        <div class="gallery-label">Diagnóstico a nivel componente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROCESO ════ -->
+<section id="proceso">
+  <div class="wrap">
+    <div class="tag">Cómo trabajamos</div>
+    <h2 class="sec-title">Un proceso claro desde el inicio</h2>
+    <p class="sec-sub">Primero revisamos, después cotizamos. El servicio continúa solo cuando tú lo autorizas.</p>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <h3>Nos contactas</h3>
+        <p>Comparte marca, modelo y una descripción de la falla por WhatsApp. Si puedes, manda foto o video.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <h3>Diagnóstico</h3>
+        <p>Evaluamos el equipo para determinar la causa y la viabilidad de la reparación.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <h3>Te cotizamos</h3>
+        <p>Informamos el costo y las condiciones antes de realizar cualquier trabajo.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <h3>Autorizas y listo</h3>
+        <p>El servicio continúa únicamente cuando das el visto bueno. Sin sorpresas.</p>
+      </div>
+    </div>
+
+    <div class="process-notice">
+      <strong>Nota sobre el diagnóstico:</strong> puede tener costo cuando no se autoriza la reparación, no hay refacciones disponibles o el equipo resulta irreparable. Se informa antes de proceder.
+    </div>
+  </div>
+</section>
+
+<!-- ════ OPINIONES ════ -->
+<section class="opiniones" id="opiniones">
+  <div class="wrap">
+    <div class="tag">Opiniones reales</div>
+    <h2 class="sec-title">Lo que dicen nuestros clientes</h2>
+    <p class="sec-sub">Reseñas de quienes ya trajeron sus equipos con nosotros.</p>
+
+    <!-- ⬇ REEMPLAZA: pásame las reseñas reales de tus clientes (Google, Facebook o WhatsApp) y las pongo aquí -->
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>«Reemplaza este texto por una reseña real de tu cliente.»</p>
+        <div class="review-meta">
+          <div class="review-avatar">★</div>
+          <div>
+            <div class="r-name">Cliente 1</div>
+            <div class="r-src">Reseña de Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>«Reemplaza este texto por una reseña real de tu cliente.»</p>
+        <div class="review-meta">
+          <div class="review-avatar">★</div>
+          <div>
+            <div class="r-name">Cliente 2</div>
+            <div class="r-src">Reseña de Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>«Reemplaza este texto por una reseña real de tu cliente.»</p>
+        <div class="review-meta">
+          <div class="review-avatar">★</div>
+          <div>
+            <div class="r-name">Cliente 3</div>
+            <div class="r-src">Reseña de Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-cta">
+      <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Hospital+PCELL+Guadalupe+Nuevo+Le%C3%B3n" target="_blank" rel="noopener">
+        Dejar una reseña en Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="tag blue">Preguntas frecuentes</div>
+    <h2 class="sec-title">Dudas antes de traer tu equipo</h2>
+    <p class="sec-sub">Si tu duda no está aquí, escríbenos por WhatsApp y la resolvemos.</p>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Cuánto cuesta la consulta (revisión) de mi equipo?</summary>
+        <p>Depende del equipo: controles desde $150, arcade $250, celulares $350, tablets $450, electrónica $550, videojuegos $650, PC $750 y laptops $850. Con el diagnóstico te informamos el costo exacto de la reparación antes de hacer nada.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿El costo de la consulta se descuenta si reparo con ustedes?</summary>
+        <p>Sí. Si autorizas la reparación con nosotros, la consulta se bonifica: se descuenta del total final de tu cuenta.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Y si solo quiero el diagnóstico sin reparar?</summary>
+        <p>También podemos entregarte solo el diagnóstico por escrito. En ese caso la consulta tiene el costo base de tu equipo y no se bonifica.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tarda una reparación?</summary>
+        <p>Depende de la falla y de la disponibilidad de refacciones. Después del diagnóstico te informamos el tiempo estimado antes de que autorices el servicio.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Manejan garantía?</summary>
+        <p>Sí: entregamos garantía por escrito en cada reparación (30 días). Si el detalle regresa dentro del periodo, la revisamos.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Puedo llevar solo la placa o solo el control, sin el equipo completo?</summary>
+        <p>Sí. Trabajamos a nivel componente, así que puedes traer el equipo completo o solo la parte que falla: placa, control, tarjeta o módulo.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Necesito cita previa?</summary>
+        <p>No es obligatoria: puedes llegar en horario de atención. Si escribes antes por WhatsApp con los datos de tu equipo, agilizamos tu revisión.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Recuperan información de equipos que ya no encienden?</summary>
+        <p>En muchos casos sí. Mediante microsoldadura y reprogramación podemos extraer información de equipos muertos o bloqueados, sujeto al diagnóstico inicial.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACTO ════ -->
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="tag red">Contáctanos</div>
+    <h2 class="sec-title">Platícanos qué le pasa a tu equipo</h2>
+    <p class="sec-sub">Respondemos por WhatsApp. Cuéntanos el problema y revisamos si podemos ayudarte.</p>
+
+    <div class="contact-grid">
+
+      <div class="contact-box">
+        <h3>Información de contacto</h3>
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-text">
+            <strong>Dirección</strong>
+            <span>Av. Maestro Israel Cavazos Garza #147<br>Residencial Valles de Guadalupe, C.P. 67195<br>Guadalupe, Nuevo León</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">💬</div>
+          <div class="ci-text">
+            <strong>WhatsApp</strong>
+            <span>81 2981 2615</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">🕐</div>
+          <div class="ci-text">
+            <strong>Horario de atención</strong>
+            <div class="schedule-grid" style="margin-top:8px;">
+              <div class="schedule-row">
+                <span class="s-day">Lun – Vie</span>
+                <span class="s-time">1:00 PM – 8:00 PM</span>
+              </div>
+              <div class="schedule-row">
+                <span class="s-day">Sábado</span>
+                <span class="s-time">1:00 PM – 6:00 PM</span>
+              </div>
+              <div class="schedule-row">
+                <span class="s-day">Domingo</span>
+                <span class="s-time closed">Cerrado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="wa-big" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quisiera%20informaci%C3%B3n%20sobre%20un%20servicio." target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6L0 24l6.2-1.6A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.25-1.44l-.38-.22-3.92 1.01 1.04-3.8-.25-.4A9.93 9.93 0 0 1 2 12c0-5.51 4.49-10 10-10s10 4.49 10 10-4.49 10-10 10zm5.47-7.59c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51l-.58-.01c-.2 0-.52.07-.79.37-.28.3-1.06 1.04-1.06 2.53s1.09 2.93 1.24 3.13c.15.2 2.15 3.28 5.2 4.6.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.34z"/></svg>
+          Enviar mensaje por WhatsApp
+        </a>
+
+        <!-- Redes sociales -->
+        <div class="social-row">
+          <span class="social-label">Síguenos en redes</span>
+          <div class="social-btns">
+            <a class="social-btn fb" href="https://facebook.com/HospitalPcell" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              Facebook
+            </a>
+            <a class="social-btn ig" href="https://instagram.com/hospital.pcell" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a class="social-btn tt" href="https://tiktok.com/@hospital.pcell" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>
+              TikTok
+            </a>
+          </div>
+        </div>
+
+        <div class="map-embed">
+          <iframe
+            src="https://maps.google.com/maps?q=Av+Maestro+Israel+Cavazos+Garza+147,+Residencial+Valles+de+Guadalupe,+67195+Guadalupe,+Nuevo+Leon,+Mexico&output=embed&z=16"
+            title="Ubicación Hospital PCELL"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <a class="map-cta" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Maestro+Israel+Cavazos+Garza+147%2C+Residencial+Valles+de+Guadalupe%2C+67195+Guadalupe%2C+Nuevo+Le%C3%B3n%2C+M%C3%A9xico" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Cómo llegar con Google Maps
+        </a>
+      </div>
+
+      <div class="contact-box">
+        <h3>Para agilizar tu consulta</h3>
+        <p style="color:var(--muted);font-size:.92rem;margin-bottom:18px;">Cuando nos escribas, si puedes incluye estos datos para darte una respuesta más rápida:</p>
+        <div class="tips-list">
+          <div class="tip-item">Tipo de equipo, marca y modelo (ej. PlayStation 5, iPhone 13, Laptop HP)</div>
+          <div class="tip-item">Qué problema presenta y desde cuándo ocurre</div>
+          <div class="tip-item">Si enciende, carga, muestra imagen o algún sonido</div>
+          <div class="tip-item">Si sufrió golpe, caída o contacto con líquido</div>
+          <div class="tip-item">Foto o video de la falla, si es posible</div>
+        </div>
+        <div style="margin-top:24px;padding:18px;background:var(--bg3);border:1px solid var(--border2);border-radius:12px;">
+          <div style="font-weight:800;margin-bottom:6px;">¿No sabes exactamente qué tiene?</div>
+          <p style="color:var(--muted);font-size:.9rem;margin:0;">No importa. Escríbenos con lo que sí sabes — cuéntanos qué hace o deja de hacer el equipo — y nosotros lo evaluamos.</p>
+        </div>
+        <div style="margin-top:16px;padding:14px 18px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:12px;font-size:.88rem;color:var(--muted);">
+          🛠️ Somos <strong style="color:var(--text);">especialistas en hardware, software y microsoldadura</strong>. Atendemos desde daños visibles en placa hasta problemas de programación y arranque.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">HOSPITAL <span>PCELL</span> · Servicio Técnico Profesional</div>
+    <div>Guadalupe, Nuevo León, México</div>
+    <div>© <span id="yr"></span> Hospital PCELL</div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="wa-float" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6L0 24l6.2-1.6A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.25-1.44l-.38-.22-3.92 1.01 1.04-3.8-.25-.4A9.93 9.93 0 0 1 2 12c0-5.51 4.49-10 10-10s10 4.49 10 10-4.49 10-10 10zm5.47-7.59c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51l-.58-.01c-.2 0-.52.07-.79.37-.28.3-1.06 1.04-1.06 2.53s1.09 2.93 1.24 3.13c.15.2 2.15 3.28 5.2 4.6.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.34z"/></svg>
+</a>
+
+<!-- ─── CLOUDFLARE WEB ANALYTICS ─────────────────────────────
+     1) En el panel de Cloudflare entra a: Web Analytics → "Add a site" → escribe hospitalpcell.com
+     2) Copia el fragmento que te genera y pégalo debajo (solo cambia TU_TOKEN por el token real):
+     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TU_TOKEN"}'></script>
+-->
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
