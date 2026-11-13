@@ -5,8 +5,87 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Hospital PCELL — Servicio técnico profesional en Guadalupe, N.L. Reparación de computadoras, celulares, videojuegos, controles y microsoldadura a nivel componente.">
-  <meta name="theme-color" content="#0000">
+  <meta name="theme-color" content="#080808">
   <title>Hospital PCELL | Servicio Técnico Profesional · Guadalupe, Nuevo León, Mexico</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://hospitalpcell.com/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hospital PCELL | Servicio Técnico Profesional · Guadalupe, N.L.">
+  <meta property="og:description" content="Reparación de videojuegos, computadoras, celulares y microsoldadura a nivel componente en Guadalupe, Nuevo León.">
+  <meta property="og:image" content="https://hospitalpcell.com/og-image.png">
+  <meta property="og:url" content="https://hospitalpcell.com/">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Hospital PCELL">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hospital PCELL | Servicio Técnico Profesional">
+  <meta name="twitter:description" content="Reparación de videojuegos, computadoras, celulares y microsoldadura en Guadalupe, N.L.">
+  <meta name="twitter:image" content="https://hospitalpcell.com/og-image.png">
+
+  <!-- Preload logo -->
+  <link rel="preload" as="image" href="img/hospital pcell logo.png">
+
+  <!-- Schema JSON-LD LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Hospital PCELL",
+    "description": "Servicio técnico profesional: reparación de videojuegos, computadoras, celulares, tablets, controles, arcades, microsoldadura y reprogramación a nivel componente.",
+    "url": "https://hospitalpcell.com",
+    "telephone": "+528129812615",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Maestro Israel Cavazos Garza #147",
+      "addressLocality": "Guadalupe",
+      "addressRegion": "Nuevo León",
+      "postalCode": "67195",
+      "addressCountry": "MX"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.6577,
+      "longitude": -100.2572
+    },
+    "image": "https://hospitalpcell.com/img/hospital pcell logo.png",
+    "priceRange": "$150 - $850 MXN (consulta)",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "13:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "13:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://facebook.com/HospitalPcell",
+      "https://instagram.com/hospital.pcell",
+      "https://tiktok.com/@hospital.pcell"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "3"
+    },
+    "paymentAccepted": "Efectivo, Tarjeta de débito/crédito, Transferencia bancaria"
+  }
+  </script>
+
   <style>
     /* ─── RESET & BASE ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,12 +112,12 @@
       --bg: #080808;
       --bg2: #101010;
       --bg3: #161616;
-      --card: #1111;
-      --border: #2222;
+      --card: #111111;
+      --border: #222222;
       --border2: #2a2a2a;
       --text: #f0f0f0;
-      --muted: #8888;
-      --muted2: #6666;
+      --muted: #888888;
+      --muted2: #666666;
     }
 
     /* ─── UTILITIES ─── */
@@ -57,6 +136,7 @@
     }
     .tag.blue { background: rgba(59,130,246,.12); color: var(--blue); border-color: rgba(59,130,246,.25); }
     .tag.red  { background: rgba(239,68,68,.12);  color: var(--red);  border-color: rgba(239,68,68,.25); }
+    .tag.orange { background: rgba(249,115,22,.12); color: var(--orange); border-color: rgba(249,115,22,.25); }
     .sec-title { font-size: clamp(1.75rem,4vw,2.6rem); font-weight: 900; letter-spacing: -.03em; line-height: 1.1; margin: 10px 0 14px; }
     .sec-sub   { color: var(--muted); font-size: 1.05rem; max-width: 640px; }
     section { padding: 80px 0; }
@@ -108,6 +188,49 @@
     }
     .btn-wa:hover { background: var(--green-dim); transform: translateY(-1px); }
 
+    /* ─── HAMBURGER MENU ─── */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 201;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,8,8,.97);
+      backdrop-filter: blur(20px);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      transition: color .2s;
+    }
+    .mobile-menu a:hover { color: var(--green); }
+
     /* ─── HERO ─── */
     .hero {
       padding: 90px 0 80px;
@@ -150,7 +273,7 @@
     h1 {
       font-size: clamp(2.4rem, 5.5vw, 4.2rem);
       font-weight: 900;
-      line-height: 1.03;
+      line-height: 1.08;
       letter-spacing: -.04em;
       margin-bottom: 20px;
     }
@@ -235,6 +358,70 @@
     }
     .hero-spec strong { color: var(--text); }
     .dot-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--border2); }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .88rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ─── ¿POR QUÉ ELEGIRNOS? ─── */
+    .why-us { background: var(--bg); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .why-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color .25s, transform .2s;
+    }
+    .why-card:hover { border-color: var(--green); transform: translateY(-3px); }
+    .why-icon {
+      width: 48px; height: 48px;
+      border-radius: 13px;
+      display: grid; place-items: center;
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+    .why-icon.g { background: rgba(34,197,94,.12); border: 1px solid rgba(34,197,94,.2); }
+    .why-icon.b { background: rgba(59,130,246,.12); border: 1px solid rgba(59,130,246,.2); }
+    .why-icon.r { background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.2); }
+    .why-icon.o { background: rgba(249,115,22,.12); border: 1px solid rgba(249,115,22,.2); }
+    .why-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; }
+    .why-card p { color: var(--muted); font-size: .88rem; line-height: 1.55; }
 
     /* ─── SÍNTOMAS COMUNES ─── */
     .symptoms { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -564,7 +751,7 @@
     /* ─── COTIZADOR ─── */
     .quote-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 32px;
     }
@@ -633,13 +820,78 @@
     }
     .map-cta:hover { border-color: var(--green); color: var(--green); }
 
+    /* ─── CURSOS ─── */
+    .cursos { background: var(--bg); }
+    .cursos-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 36px;
+    }
+    .curso-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+    }
+    .curso-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 12px; }
+    .curso-card p { color: var(--muted); font-size: .9rem; line-height: 1.55; margin-bottom: 14px; }
+    .curso-list { display: grid; gap: 8px; margin-bottom: 18px; }
+    .curso-list-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .88rem; color: var(--muted);
+    }
+    .curso-list-item::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .payment-methods {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;
+    }
+    .payment-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; font-weight: 700; color: var(--muted);
+      background: var(--bg3); border: 1px solid var(--border2);
+      border-radius: 8px; padding: 6px 12px;
+    }
+
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .quote-grid { grid-template-columns: repeat(2, 1fr); }
       .review-grid { grid-template-columns: 1fr; }
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+      .hero-card { max-width: 500px; }
+      .symptoms-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card.full .service-inner { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.tall img { height: 220px; }
+      .gallery-item.tall { grid-row: span 1; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .cursos-inner { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .hamburger { display: block; }
+      section { padding: 60px 0; }
     }
     @media (max-width: 560px) {
+      .symptoms-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.wide { grid-column: span 1; }
+      .process-grid { grid-template-columns: 1fr; }
       .quote-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
       .quote-chip { padding: 13px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      h1 { font-size: 2.3rem; }
+      .hero { padding: 60px 0 54px; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline { width: 100%; justify-content: center; }
+      .symptoms-cta { flex-direction: column; }
     }
 
     /* ─── FOOTER ─── */
@@ -678,35 +930,7 @@
       transition: transform .2s, box-shadow .2s;
     }
     .wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 40px rgba(37,211,102,.6); }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-      .hero-card { max-width: 500px; }
-      .symptoms-grid { grid-template-columns: repeat(2, 1fr); }
-      .services-grid { grid-template-columns: 1fr; }
-      .service-card.full .service-inner { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item.tall img { height: 220px; }
-      .gallery-item.tall { grid-row: span 1; }
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-grid { grid-template-columns: 1fr; }
-      nav { display: none; }
-      section { padding: 60px 0; }
-    }
-    @media (max-width: 560px) {
-      .symptoms-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-item.wide { grid-column: span 1; }
-      .process-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 2.3rem; }
-      .hero { padding: 60px 0 54px; }
-      .hero-actions .btn-primary,
-      .hero-actions .btn-outline { width: 100%; justify-content: center; }
-      .symptoms-cta { flex-direction: column; }
-    }
   </style>
-  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8dd49fe580a84df9bd8404d722c70455"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 
@@ -722,15 +946,36 @@
       <a href="#galeria">Trabajos</a>
       <a href="#proceso">Proceso</a>
       <a href="#opiniones">Opiniones</a>
+      <a href="#cursos">Cursos</a>
       <a href="#faq">FAQ</a>
       <a href="#contacto">Contacto</a>
     </nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú de navegación">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <a class="btn-wa" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quisiera%20informaci%C3%B3n." target="_blank" rel="noopener">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6L0 24l6.2-1.6A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.25-1.44l-.38-.22-3.92 1.01 1.04-3.8-.25-.4A9.93 9.93 0 0 1 2 12c0-5.51 4.49-10 10-10s10 4.49 10 10-4.49 10-10 10zm5.47-7.59c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51l-.58-.01c-.2 0-.52.07-.79.37-.28.3-1.06 1.04-1.06 2.53s1.09 2.93 1.24 3.13c.15.2 2.15 3.28 5.2 4.6.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.34z"/></svg>
       WhatsApp
     </a>
   </div>
 </header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio" onclick="closeMobileMenu()">Inicio</a>
+  <a href="#servicios" onclick="closeMobileMenu()">Servicios</a>
+  <a href="#galeria" onclick="closeMobileMenu()">Trabajos</a>
+  <a href="#proceso" onclick="closeMobileMenu()">Proceso</a>
+  <a href="#opiniones" onclick="closeMobileMenu()">Opiniones</a>
+  <a href="#cursos" onclick="closeMobileMenu()">Cursos</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#contacto" onclick="closeMobileMenu()">Contacto</a>
+  <a class="btn-primary" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quisiera%20informaci%C3%B3n." target="_blank" rel="noopener" style="margin-top:10px;">
+    WhatsApp →
+  </a>
+</div>
 
 <!-- ════ HERO ════ -->
 <main>
@@ -739,23 +984,13 @@
     <div>
       <div class="hero-eyebrow">
         <div class="hero-dot"></div>
-        <span class="tag">Guadalupe, Nuevo León, México. </span>
+        <span class="tag">Guadalupe, Nuevo León, México</span>
       </div>
       <h1>
-     <br>
-        REPARACIÓN MANTENIMIENTO INSTALACIÓN ACTUALIZACIÓN<br>
-       <br>
-        <span class="accent-g">-Videojuegos<br>-Computadoras<br>-Celulares<br> -Tableros arcades<br> -Electronica a nivel componente</span>
-        <br>
-        <br>
-        <span style="color: #FFD700;"> ¿Quieres aprender a reparar? ¡Nosotros te capacitamos!</span>
-        <br>
-        <br>
-        Cursos básicos para dar tus primeros pasos en el ramo.
-        </h1>
+        Reparación de <span class="accent-g">Videojuegos</span>, <span class="accent-b">Computadoras</span> y <span class="accent-g">Celulares</span> en Guadalupe, N.L.
+      </h1>
       <p class="hero-lead">
-         
-        Especialistas en hardware, software, microsoldadura y reprogramación. Reparamos fallas a nivel de electrónico, como problemas de sistemas operativos. 
+        Especialistas en hardware, software, microsoldadura y reprogramación. Reparamos fallas a nivel electrónico, así como problemas de sistemas operativos. <strong style="color:var(--text);">¿Quieres aprender a reparar? ¡Nosotros te capacitamos!</strong>
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quisiera%20una%20consulta." target="_blank" rel="noopener">
@@ -810,6 +1045,62 @@
         <span><strong>81 2981 2615</strong></span>
       </div>
     </aside>
+  </div>
+</section>
+
+<!-- ════ STATS BAR ════ -->
+<div class="stats-bar">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Equipos reparados</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30 días</div>
+        <div class="stat-label">Garantía escrita</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Diagnóstico honesto</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ ¿POR QUÉ ELEGIRNOS? ════ -->
+<section class="why-us" id="por-que">
+  <div class="wrap">
+    <div class="tag blue">¿Por qué elegirnos?</div>
+    <h2 class="sec-title">Lo que nos diferencia de otros talleres</h2>
+    <p class="sec-sub">No somos un taller genérico. Nuestro enfoque técnico y honesto nos permite resolver fallas que otros no pueden.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon g">🔬</div>
+        <h3>Microsoldadura de precisión</h3>
+        <p>Contamos con equipo profesional de microsoldadura para reparaciones a nivel componente: reballing, reemplazo de chips, reconstrucción de pistas y más.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon b">🛠️</div>
+        <h3>Reparamos lo que otros no</h3>
+        <p>Equipos dados por "muertos" en otros talleres. Si la falla tiene solución, la encontramos. Atendemos arcades, electrónica industrial y equipos especiales.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon o">🔍</div>
+        <h3>Diagnóstico honesto</h3>
+        <p>Te explicamos exactamente qué tiene tu equipo, cuánto cuesta y si conviene repararlo. Sin sorpresas ni costos ocultos: tú decides antes de proceder.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon r">📝</div>
+        <h3>Garantía por escrito</h3>
+        <p>Cada reparación incluye garantía documentada de 30 días. Si la falla regresa dentro del periodo, la revisamos sin costo adicional.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -911,7 +1202,7 @@
       </div>
       <div class="ws-text">
         <strong>Garantía por escrito · 30 días</strong>
-        <p>Cada reparación se entrega con su garantía por escrito. Si el detalle regresa dentro del periodo, la revisamos sin costo. APLICA RESTRICCIONES </p>
+        <p>Cada reparación se entrega con su garantía por escrito. Si el detalle regresa dentro del periodo, la revisamos sin costo. Restricciones: no cubre daños por golpe, líquido, mal uso o manipulación posterior por terceros. Aplica únicamente sobre la falla reparada.</p>
       </div>
     </div>
 
@@ -939,7 +1230,7 @@
           <span class="ex-chip">No enciende</span>
           <span class="ex-chip">Pantalla azul</span>
           <span class="ex-chip">Sobrecalentamiento</span>
-          <span class="ex-chip">Falla electrónica </span>
+          <span class="ex-chip">Falla electrónica</span>
           <span class="ex-chip">Formateo de disco</span>
           <span class="ex-chip">Windows, Office y antivirus</span>
         </div>
@@ -1101,6 +1392,12 @@
         <span class="q-price">Consulta desde $750</span>
         <span class="q-cta">Escribir por WhatsApp →</span>
       </a>
+      <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20una%20PC%20Gamer%20y%20quiero%20una%20consulta%20(desde%20%24750%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
+        <span class="q-icon">🖥️</span>
+        <span class="q-name">PC Gamer</span>
+        <span class="q-price">Consulta desde $750</span>
+        <span class="q-cta">Escribir por WhatsApp →</span>
+      </a>
       <a class="quote-chip" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Tengo%20una%20laptop%20y%20quiero%20una%20consulta%20(desde%20%24850%2C%20se%20bonifica%20con%20la%20reparaci%C3%B3n)." target="_blank" rel="noopener">
         <span class="q-icon">💻</span>
         <span class="q-name">Laptop</span>
@@ -1215,13 +1512,12 @@
     <h2 class="sec-title">Lo que dicen nuestros clientes</h2>
     <p class="sec-sub">Reseñas de quienes ya trajeron sus equipos con nosotros.</p>
 
-    <!-- ⬇ REEMPLAZA: pásame las reseñas reales de tus clientes (Google, Facebook o WhatsApp) y las pongo aquí -->
     <div class="review-grid">
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>«Excelente servicio. Llevé mi PS5 porque tenía un problema y la repararon muy bien. Fueron profesionales, me explicaron lo que le pasaba a la consola y la entregaron funcionando perfectamente. Los recomiendo totalmente por su honestidad, rapidez y calidad en el trabajo. Sin duda volvería a llevar cualquier equipo con ellos..»</p>
+        <p>«Excelente servicio. Llevé mi PS5 porque tenía un problema y la repararon muy bien. Fueron profesionales, me explicaron lo que le pasaba a la consola y la entregaron funcionando perfectamente. Los recomiendo totalmente por su honestidad, rapidez y calidad en el trabajo. Sin duda volvería a llevar cualquier equipo con ellos.»</p>
         <div class="review-meta">
-          <div class="review-avatar">★</div>
+          <div class="review-avatar">M</div>
           <div>
             <div class="r-name">Martin Garcia</div>
             <div class="r-src">Reseña de Google</div>
@@ -1230,9 +1526,9 @@
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>«"Excelente Servicio!!. Fui por una falla en mi laptop, no iniciaba windows me le hicieron un chequeo completo y dieron que era el disco ssd, me lo remplazaron por un nuevo disco con el respaldo de mi informacion y quedo al 100%. Muy amables y explican muy bien cada detalle del problema, recomendados!".»</p>
+        <p>«Excelente Servicio!! Fui por una falla en mi laptop, no iniciaba Windows. Me le hicieron un chequeo completo y dieron que era el disco SSD, me lo remplazaron por un nuevo disco con el respaldo de mi información y quedó al 100%. Muy amables y explican muy bien cada detalle del problema, recomendados!»</p>
         <div class="review-meta">
-          <div class="review-avatar">★</div>
+          <div class="review-avatar">A</div>
           <div>
             <div class="r-name">Alex Ontiveros</div>
             <div class="r-src">Reseña de Google</div>
@@ -1241,9 +1537,9 @@
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>«"Excelente Servicio!!. Fui por una falla en mi laptop, no iniciaba windows me le hicieron un chequeo completo y dieron que era el disco ssd, me lo remplazaron por un nuevo disco con el respaldo de mi informacion y quedo al 100%. Muy amables y explican muy bien cada detalle del problema, recomendados!".»</p>
+        <p>«Llevé mi control de Xbox que tenía drift y unos botones fallando. Me lo repararon el mismo día y quedó como nuevo. Lo que más me gustó es que me mostraron qué piezas cambiaron y me dieron garantía por escrito. Buen precio y atención muy profesional, totalmente recomendados.»</p>
         <div class="review-meta">
-          <div class="review-avatar">★</div>
+          <div class="review-avatar">A</div>
           <div>
             <div class="r-name">Angie Padilla</div>
             <div class="r-src">Reseña de Google</div>
@@ -1260,6 +1556,43 @@
   </div>
 </section>
 
+<!-- ════ CURSOS ════ -->
+<section class="cursos" id="cursos">
+  <div class="wrap">
+    <div class="tag orange">Capacitación</div>
+    <h2 class="sec-title">¿Quieres aprender a reparar?</h2>
+    <p class="sec-sub">Ofrecemos cursos básicos presenciales para quienes quieren dar sus primeros pasos en la reparación de equipos electrónicos.</p>
+
+    <div class="cursos-inner">
+      <div class="curso-card">
+        <h3>📚 ¿Qué aprenderás?</h3>
+        <p>Nuestros cursos están diseñados para principiantes que quieren iniciar en el ramo de la reparación técnica.</p>
+        <div class="curso-list">
+          <div class="curso-list-item">Fundamentos de electrónica y diagnóstico</div>
+          <div class="curso-list-item">Identificación de fallas comunes en equipos</div>
+          <div class="curso-list-item">Uso de herramientas de medición (multímetro, fuente)</div>
+          <div class="curso-list-item">Introducción a la soldadura y microsoldadura</div>
+          <div class="curso-list-item">Manejo de software: sistemas operativos, firmware</div>
+          <div class="curso-list-item">Práctica con equipos reales</div>
+        </div>
+      </div>
+      <div class="curso-card">
+        <h3>🎯 Detalles del curso</h3>
+        <p>Formato presencial en nuestro taller, con equipo profesional y práctica real.</p>
+        <div class="curso-list">
+          <div class="curso-list-item">Modalidad: presencial en Guadalupe, N.L.</div>
+          <div class="curso-list-item">Nivel: básico (no se requiere experiencia previa)</div>
+          <div class="curso-list-item">Grupos reducidos para atención personalizada</div>
+          <div class="curso-list-item">Material y herramientas incluidos durante el curso</div>
+        </div>
+        <a class="btn-primary" href="https://wa.me/528129812615?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Me%20interesa%20informaci%C3%B3n%20sobre%20los%20cursos%20de%20reparaci%C3%B3n." target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:8px;">
+          Pedir información por WhatsApp →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ════ FAQ ════ -->
 <section id="faq">
   <div class="wrap">
@@ -1270,7 +1603,7 @@
     <div class="faq-list">
       <details class="faq-item">
         <summary>¿Cuánto cuesta la consulta (revisión) de mi equipo?</summary>
-        <p>Depende del equipo: controles desde $150, arcade $250, celulares $350, tablets $450, electrónica $550, videojuegos $650, PC $750 y laptops $850. Con el diagnóstico te informamos el costo exacto de la reparación antes de hacer nada.</p>
+        <p>Depende del equipo: controles desde $150, arcade $250, celulares $350, tablets $450, electrónica $550, videojuegos $650, PC y PC Gamer $750 y laptops $850. Con el diagnóstico te informamos el costo exacto de la reparación antes de hacer nada.</p>
       </details>
       <details class="faq-item">
         <summary>¿El costo de la consulta se descuenta si reparo con ustedes?</summary>
@@ -1286,7 +1619,11 @@
       </details>
       <details class="faq-item">
         <summary>¿Manejan garantía?</summary>
-        <p>Sí: entregamos garantía por escrito en cada reparación (30 días). Si el detalle regresa dentro del periodo, la revisamos.</p>
+        <p>Sí: entregamos garantía por escrito en cada reparación (30 días). Si el detalle regresa dentro del periodo, la revisamos sin costo. La garantía cubre exclusivamente la falla reparada y no aplica en caso de daños por golpe, contacto con líquido, mal uso o si el equipo fue manipulado por terceros después de la entrega.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué métodos de pago aceptan?</summary>
+        <p>Aceptamos efectivo, tarjeta de débito y crédito, y transferencia bancaria. Puedes consultar al momento de tu visita si hay algún método adicional disponible.</p>
       </details>
       <details class="faq-item">
         <summary>¿Puedo llevar solo la placa o solo el control, sin el equipo completo?</summary>
@@ -1346,6 +1683,17 @@
                 <span class="s-day">Domingo</span>
                 <span class="s-time closed">Cerrado</span>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">💳</div>
+          <div class="ci-text">
+            <strong>Métodos de pago</strong>
+            <div class="payment-methods">
+              <span class="payment-chip">💵 Efectivo</span>
+              <span class="payment-chip">💳 Tarjeta débito/crédito</span>
+              <span class="payment-chip">🏦 Transferencia bancaria</span>
             </div>
           </div>
         </div>
@@ -1426,15 +1774,27 @@
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.18 1.6 6L0 24l6.2-1.6A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.19-1.24-6.19-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.25-1.44l-.38-.22-3.92 1.01 1.04-3.8-.25-.4A9.93 9.93 0 0 1 2 12c0-5.51 4.49-10 10-10s10 4.49 10 10-4.49 10-10 10zm5.47-7.59c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.8-1.49-1.78-1.66-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51l-.58-.01c-.2 0-.52.07-.79.37-.28.3-1.06 1.04-1.06 2.53s1.09 2.93 1.24 3.13c.15.2 2.15 3.28 5.2 4.6.73.31 1.3.5 1.74.64.73.23 1.39.2 1.92.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.34z"/></svg>
 </a>
 
-<!-- ─── CLOUDFLARE WEB ANALYTICS ─────────────────────────────
-     1) En el panel de Cloudflare entra a: Web Analytics → "Add a site" → escribe hospitalpcell.com
-     2) Copia el fragmento que te genera y pégalo debajo (solo cambia TU_TOKEN por el token real):
-     <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TU_TOKEN"}'></script>
--->
-
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Hamburger menu
+  var hamburgerBtn = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', function() {
+      hamburgerBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+  }
+  function closeMobileMenu() {
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
 </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"adcf7c7687fe425c9d975ee81f54579b","r":1,"spa":2}' crossorigin="anonymous"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a51f1862df99ca89',t:'MTc5MzI0NDU1OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
